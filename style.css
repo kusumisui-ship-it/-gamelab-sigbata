@@ -437,3 +437,155 @@ body{
 .center span{
   font-size:28px;
 }
+/* ========= RB ========= */
+
+.rb-page{
+  padding:16px;
+}
+
+.rb-header h2{
+  font-size:38px;
+  font-weight:900;
+}
+
+.rb-header p{
+  color:#9ca3af;
+  margin-top:8px;
+  margin-bottom:20px;
+}
+
+.rb-post-box{
+  background:#0b1017;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:24px;
+  padding:16px;
+  margin-bottom:20px;
+}
+
+.rb-post-box textarea{
+  width:100%;
+  min-height:120px;
+  background:#05070b;
+  border:none;
+  border-radius:18px;
+  padding:16px;
+  color:white;
+  resize:none;
+  font-size:15px;
+}
+
+.rb-post-box textarea:focus{
+  outline:none;
+}
+
+.rb-post-bottom{
+  margin-top:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.rb-tags{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.rb-tags span{
+  background:#161b25;
+  color:#ff4f65;
+  padding:8px 12px;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.rb-submit{
+  height:44px;
+  padding:0 18px;
+  border:none;
+  border-radius:14px;
+  background:#ff3048;
+  color:white;
+  font-weight:700;
+}
+
+.rb-feed{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.rb-card{
+  background:#0b1017;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:24px;
+  padding:18px;
+}
+
+.rb-user{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.rb-avatar{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  background:#162033;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#00d9ff;
+  font-weight:900;
+}
+
+.rb-avatar.red{
+  color:#ff3048;
+}
+
+.rb-user h4{
+  font-size:16px;
+}
+
+.rb-user p{
+  color:#8b95a7;
+  font-size:13px;
+  margin-top:2px;
+}
+
+.rb-text{
+  margin-top:18px;
+  line-height:1.9;
+  font-size:16px;
+}
+
+.rb-tag-row{
+  display:flex;
+  gap:8px;
+  margin-top:18px;
+  flex-wrap:wrap;
+}
+
+.rb-tag-row span{
+  background:#141923;
+  color:#ff4f65;
+  padding:7px 11px;
+  border-radius:10px;
+  font-size:12px;
+}
+
+.rb-actions{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+}
+
+.rb-actions button{
+  background:#141923;
+  border:none;
+  color:#c7cfdb;
+  padding:10px 14px;
+  border-radius:12px;
+}
