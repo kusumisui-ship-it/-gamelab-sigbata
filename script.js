@@ -276,3 +276,84 @@ document.querySelectorAll(".nav-item").forEach((item,index)=>{
   });
 
 });
+/* ========= RB POST ========= */
+
+document.addEventListener("click",(e)=>{
+
+  if(e.target.classList.contains("rb-submit")){
+
+    const textarea =
+    document.querySelector(".rb-post-box textarea");
+
+    const text = textarea.value.trim();
+
+    if(!text) return;
+
+    const feed =
+    document.querySelector(".rb-feed");
+
+    const post = document.createElement("article");
+
+    post.className = "rb-card";
+
+    post.innerHTML = `
+
+      <div class="rb-top">
+
+        <div class="rb-user">
+
+          <div class="rb-avatar">
+            S
+          </div>
+
+          <div>
+
+            <h4>
+              Sui
+            </h4>
+
+            <p>
+              Player ・ 今
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="rb-text">
+        ${text}
+      </p>
+
+      <div class="rb-tag-row">
+
+        <span>#研究</span>
+
+      </div>
+
+      <div class="rb-actions">
+
+        <button>
+          GOOD 0
+        </button>
+
+        <button>
+          コメント 0
+        </button>
+
+        <button>
+          保存
+        </button>
+
+      </div>
+
+    `;
+
+    feed.prepend(post);
+
+    textarea.value="";
+
+  }
+
+});
