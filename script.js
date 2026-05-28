@@ -53,29 +53,169 @@ const pages = {
 
   rb: `
 
-  <section class="quick-access">
+<section class="rb-page">
 
-    <h3>Research Board</h3>
+  <div class="rb-header">
 
-    <div class="quick-grid">
+    <h2>
+      Research Board
+    </h2>
 
-      <button class="quick-card">
+    <p>
+      Competitive Research Feed
+    </p>
+
+  </div>
+
+  <div class="rb-post-box">
+
+    <textarea
+      placeholder="研究・考察を書く..."
+      maxlength="200"
+    ></textarea>
+
+    <div class="rb-post-bottom">
+
+      <div class="rb-tags">
+
+        <span>#Apex</span>
         <span>#IGL</span>
-      </button>
-
-      <button class="quick-card">
-        <span>#PAD</span>
-      </button>
-
-      <button class="quick-card">
         <span>#Macro</span>
+
+      </div>
+
+      <button class="rb-submit">
+        投稿
       </button>
 
     </div>
 
-  </section>
+  </div>
 
-  `,
+  <div class="rb-feed">
+
+    <article class="rb-card">
+
+      <div class="rb-top">
+
+        <div class="rb-user">
+
+          <div class="rb-avatar">
+            S
+          </div>
+
+          <div>
+
+            <h4>
+              Sui
+            </h4>
+
+            <p>
+              IGL ・ 2時間前
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="rb-text">
+
+        PAD勢が近距離で勝てない理由は、
+        入力遅延よりピークタイミング説。
+
+      </p>
+
+      <div class="rb-tag-row">
+
+        <span>#PAD</span>
+        <span>#研究</span>
+        <span>#Macro</span>
+
+      </div>
+
+      <div class="rb-actions">
+
+        <button>
+          GOOD 91
+        </button>
+
+        <button>
+          コメント 12
+        </button>
+
+        <button>
+          保存
+        </button>
+
+      </div>
+
+    </article>
+
+    <article class="rb-card">
+
+      <div class="rb-top">
+
+        <div class="rb-user">
+
+          <div class="rb-avatar red">
+            A
+          </div>
+
+          <div>
+
+            <h4>
+              Apex Analyst
+            </h4>
+
+            <p>
+              Analyst ・ 5時間前
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="rb-text">
+
+        安置読みは確率ではなく、
+        “チーム分布”から逆算できる。
+
+      </p>
+
+      <div class="rb-tag-row">
+
+        <span>#Zone</span>
+        <span>#Macro</span>
+
+      </div>
+
+      <div class="rb-actions">
+
+        <button>
+          GOOD 142
+        </button>
+
+        <button>
+          コメント 24
+        </button>
+
+        <button>
+          保存
+        </button>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+`,
 
   lab: `
 
