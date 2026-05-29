@@ -420,3 +420,59 @@ document.addEventListener("click", (e) => {
 
   btn.textContent = `GOOD ${current + 1}`;
 });
+/* ========= COMMENT ========= */
+
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".rb-actions button");
+
+  if (!btn) return;
+
+  if (!btn.textContent.includes("コメント")) return;
+
+  const card = btn.closest(".rb-card");
+
+  let commentBox = card.querySelector(".rb-comment-box");
+
+  if (commentBox) {
+    commentBox.remove();
+    return;
+  }
+
+  commentBox = document.createElement("div");
+  commentBox.className = "rb-comment-box";
+
+  commentBox.innerHTML = `
+    <textarea placeholder="コメントを書く..."></textarea>
+    <button class="rb-comment-submit">送信</button>
+    <div class="rb-comment-list"></div>
+  `;
+
+  card.appendChild(commentBox);
+});
+
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".rb-comment-submit");
+
+  if (!btn) return;
+
+  const box = btn.closest(".rb-comment-box");
+  const textarea = box.querySelector("textarea");
+  const list = box.querySelector(".rb-comment-list");
+
+  const text = textarea.value.trim();
+
+  if (!text) return;
+
+  const comment = document.createElement("div");
+
+  comment.className = "rb-comment";
+
+  comment.innerHTML = `
+    <strong>Sui</strong>
+    <p>${text}</p>
+  `;
+
+  list.prepend(comment);
+
+  textarea.value = "";
+});
