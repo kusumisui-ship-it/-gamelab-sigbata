@@ -357,3 +357,51 @@ document.addEventListener("click",(e)=>{
   }
 
 });
+/* ========= RB POST ========= */
+
+document.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("rb-submit")) return;
+
+  const textarea = document.querySelector(".rb-post-box textarea");
+  const feed = document.querySelector(".rb-feed");
+
+  if (!textarea || !feed) return;
+
+  const text = textarea.value.trim();
+
+  if (!text) {
+    alert("投稿内容を入力して");
+    return;
+  }
+
+  const post = document.createElement("article");
+  post.className = "rb-card";
+
+  post.innerHTML = `
+    <div class="rb-top">
+      <div class="rb-user">
+        <div class="rb-avatar">S</div>
+        <div>
+          <h4>Sui</h4>
+          <p>Researcher ・ 今</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="rb-text">${text}</p>
+
+    <div class="rb-tag-row">
+      <span>#研究</span>
+      <span>#Apex</span>
+    </div>
+
+    <div class="rb-actions">
+      <button>GOOD 0</button>
+      <button>コメント 0</button>
+      <button>保存</button>
+    </div>
+  `;
+
+  feed.prepend(post);
+  textarea.value = "";
+});
