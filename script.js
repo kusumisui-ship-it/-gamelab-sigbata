@@ -420,51 +420,76 @@ document.addEventListener("click", (e) => {
 
   btn.textContent = `GOOD ${current + 1}`;
 });
-/* ========= COMMENT ========= */
+
+/* ========= COMMENT MODAL ========= */
+
+let activeCommentCard = null;
 
 document.addEventListener("click", (e) => {
   const btn = e.target.closest(".rb-actions button");
-
   if (!btn) return;
-
   if (!btn.textContent.includes("コメント")) return;
 
-  const card = btn.closest(".rb-card");
+  activeCommentCard = btn.closest(".rb-card");
 
-  let commentBox = card.querySelector(".rb-comment-box");
+  openCommentModal();
+});
 
-  if (commentBox) {
-    commentBox.remove();
-    return;
+function openCommentModal(){
+  let modal = document.querySelector(".comment-modal");
+
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.className = "comment-modal";
+
+    modal.innerHTML = `
+      <div class="comment-panel">
+        <div class="comment-head">
+          <h3>コメント</h3>
+          <button class="comment-close">×</button>
+        </div>
+
+        <div class="modal-comment-list"></div>
+
+        <textarea class="modal-comment-input" placeholder="コメントを書く..."></textarea>
+
+        <button class="modal-comment-submit">送信</button>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
   }
 
-  commentBox = document.createElement("div");
-  commentBox.className = "rb-comment-box";
+  modal.classList.add("show");
 
-  commentBox.innerHTML = `
-    <textarea placeholder="コメントを書く..."></textarea>
-    <button class="rb-comment-submit">送信</button>
-    <div class="rb-comment-list"></div>
-  `;
+  const list = modal.querySelector(".modal-comment-list");
+  list.innerHTML = "";
 
-  card.appendChild(commentBox);
+  const oldComments = activeCommentCard.querySelectorAll(".rb-comment");
+
+  oldComments.forEach((comment) => {
+    list.appendChild(comment.cloneNode(true));
+  });
+}
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("comment-close")) {
+    document.querySelector(".comment-modal").classList.remove("show");
+  }
 });
 
 document.addEventListener("click", (e) => {
-  const btn = e.target.closest(".rb-comment-submit");
-
+  const btn = e.target.closest(".modal-comment-submit");
   if (!btn) return;
 
-  const box = btn.closest(".rb-comment-box");
-  const textarea = box.querySelector("textarea");
-  const list = box.querySelector(".rb-comment-list");
+  const modal = btn.closest(".comment-modal");
+  const input = modal.querySelector(".modal-comment-input");
+  const list = modal.querySelector(".modal-comment-list");
 
-  const text = textarea.value.trim();
-
+  const text = input.value.trim();
   if (!text) return;
 
   const comment = document.createElement("div");
-
   comment.className = "rb-comment";
 
   comment.innerHTML = `
@@ -472,16 +497,17 @@ document.addEventListener("click", (e) => {
     <p>${text}</p>
   `;
 
-  const card = box.closest(".rb-card");
+  list.prepend(comment);
+  activeCommentCard.appendChild(comment.cloneNode(true));
 
-const commentBtn =
-  card.querySelector(".rb-actions button:nth-child(2)");
+  const commentBtn =
+    activeCommentCard.querySelector(".rb-actions button:nth-child(2)");
 
-const currentCount = parseInt(
-  commentBtn.textContent.replace("コメント", "").trim()
-);
+  const currentCount = parseInt(
+    commentBtn.textContent.replace("コメント", "").trim()
+  );
 
-commentBtn.textContent = `コメント ${currentCount + 1}`;
+  commentBtn.textContent = `コメント ${currentCount + 1}`;
 
-  textarea.value = "";
+  input.value = "";
 });
