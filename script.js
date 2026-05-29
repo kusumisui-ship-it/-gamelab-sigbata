@@ -360,16 +360,16 @@ document.addEventListener("click",(e)=>{
 /* ========= RB POST ========= */
 
 document.addEventListener("click", (e) => {
-  if (!e.target.classList.contains("rb-submit")) return;
+  const submitBtn = e.target.closest(".rb-submit");
+  if (!submitBtn) return;
 
-  const textarea = document.querySelector(".rb-post-box textarea");
+  const postBox = submitBtn.closest(".rb-post-box");
+  const textarea = postBox.querySelector("textarea");
   const feed = document.querySelector(".rb-feed");
-
-  if (!textarea || !feed) return;
 
   const text = textarea.value.trim();
 
-  if (!text) {
+  if (text.length === 0) {
     alert("投稿内容を入力して");
     return;
   }
