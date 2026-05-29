@@ -472,10 +472,10 @@ document.addEventListener("click", (e) => {
     <p>${text}</p>
   `;
 
-  list.prepend(comment);
-  
-  const commentBtn =
-  box.parentElement.querySelector(".rb-actions button:nth-child(2)");
+  const card = box.closest(".rb-card");
+
+const commentBtn =
+  card.querySelector(".rb-actions button:nth-child(2)");
 
 const currentCount = parseInt(
   commentBtn.textContent.replace("コメント", "").trim()
