@@ -604,3 +604,40 @@ document.addEventListener("click", (e) => {
 
   btn.textContent = `GOOD ${current + 1}`;
 });
+.rb-comment-box{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+.rb-comment-box textarea{
+  width:100%;
+  min-height:80px;
+  background:#0d1324;
+  border:none;
+  border-radius:12px;
+  color:white;
+  padding:12px;
+  resize:none;
+}
+
+.rb-comment-submit{
+  margin-top:10px;
+  background:#ff3355;
+  color:white;
+  border:none;
+  border-radius:10px;
+  padding:10px 18px;
+}
+
+.rb-comment{
+  margin-top:12px;
+  padding:12px;
+  background:#111827;
+  border-radius:12px;
+}
+
+.rb-comment p{
+  margin-top:6px;
+  color:#d5d9e3;
+}
