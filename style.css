@@ -641,3 +641,64 @@ document.addEventListener("click", (e) => {
   margin-top:6px;
   color:#d5d9e3;
 }
+.comment-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:none;
+  align-items:flex-end;
+  z-index:999;
+}
+
+.comment-modal.show{
+  display:flex;
+}
+
+.comment-panel{
+  width:100%;
+  max-height:75vh;
+  background:#0b1017;
+  border-radius:28px 28px 0 0;
+  padding:20px;
+  border-top:1px solid rgba(255,255,255,.08);
+  overflow:auto;
+}
+
+.comment-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+}
+
+.comment-close{
+  background:#151b26;
+  color:white;
+  border:none;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  font-size:22px;
+}
+
+.modal-comment-input{
+  width:100%;
+  min-height:90px;
+  background:#101626;
+  color:white;
+  border:none;
+  border-radius:16px;
+  padding:14px;
+  resize:none;
+  margin-top:14px;
+}
+
+.modal-comment-submit{
+  margin-top:12px;
+  background:#ff3048;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:14px;
+  font-weight:700;
+}
