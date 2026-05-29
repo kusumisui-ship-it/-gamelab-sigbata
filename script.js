@@ -473,6 +473,15 @@ document.addEventListener("click", (e) => {
   `;
 
   list.prepend(comment);
+  
+  const commentBtn =
+  box.parentElement.querySelector(".rb-actions button:nth-child(2)");
+
+const currentCount = parseInt(
+  commentBtn.textContent.replace("コメント", "").trim()
+);
+
+commentBtn.textContent = `コメント ${currentCount + 1}`;
 
   textarea.value = "";
 });
