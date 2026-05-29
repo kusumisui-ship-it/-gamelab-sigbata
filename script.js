@@ -405,3 +405,18 @@ document.addEventListener("click", (e) => {
   feed.prepend(post);
   textarea.value = "";
 });
+/* ========= GOOD BUTTON ========= */
+
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".rb-actions button");
+
+  if (!btn) return;
+
+  if (!btn.textContent.includes("GOOD")) return;
+
+  const current = parseInt(
+    btn.textContent.replace("GOOD", "").trim()
+  );
+
+  btn.textContent = `GOOD ${current + 1}`;
+});
