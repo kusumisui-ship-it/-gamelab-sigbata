@@ -520,3 +520,10 @@ document.addEventListener("click", (e) => {
   input.value = "";
   openCommentView();
 });
+/* ========= PROFILE LINK ========= */
+
+document.addEventListener("click", (e) => {
+  if (e.target.closest(".profile-btn")) {
+    setPage("profile");
+  }
+});
