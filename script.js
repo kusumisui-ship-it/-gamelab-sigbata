@@ -282,8 +282,7 @@ profile: `
   </div>
 
 </section>
-
-`
+`,
 };
 
 function setPage(page){
