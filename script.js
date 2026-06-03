@@ -307,9 +307,6 @@ profile: `
 </div>
 
 </section>
-`
-
-</section>
 `,
 };
 
