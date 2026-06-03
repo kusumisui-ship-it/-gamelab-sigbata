@@ -245,8 +245,9 @@ const pages = {
 
   </section>
 
-  `
-  profile: `
+`,
+
+profile: `
 
 <section class="profile-page">
 
