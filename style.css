@@ -92,6 +92,65 @@ body{
   justify-content:center;
   color:#ff3048;
   font-weight:700;
+  .profile-btn{
+  cursor:pointer;
+}
+
+.profile-page{
+  padding:24px;
+}
+
+.profile-header{
+  text-align:center;
+  padding:40px 20px;
+}
+
+.profile-avatar{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:#ff3048;
+  color:white;
+  font-size:40px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 16px;
+}
+
+.profile-header h2{
+  margin-bottom:8px;
+}
+
+.profile-header p{
+  color:#8d97a6;
+}
+
+.profile-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:24px;
+}
+
+.profile-stats div{
+  background:#0b1220;
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+}
+
+.profile-stats strong{
+  display:block;
+  font-size:22px;
+  color:white;
+}
+
+.profile-stats span{
+  color:#8d97a6;
+  font-size:13px;
+}
 }
 
 /* ========= HERO ========= */
