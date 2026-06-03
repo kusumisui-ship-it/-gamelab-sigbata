@@ -289,6 +289,7 @@ profile: `
 function setPage(page){
   app.innerHTML = pages[page];
 }
+window.setPage = setPage;
 
 setPage("home");
 
