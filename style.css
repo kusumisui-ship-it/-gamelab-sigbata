@@ -892,3 +892,11 @@ document.addEventListener("click", (e) => {
 .comment-modal .stored-comment{
   display:block;
 }
+.topbar{
+  z-index:1000;
+}
+
+.profile-btn{
+  position:relative;
+  z-index:1001;
+}
