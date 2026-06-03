@@ -421,7 +421,7 @@ document.addEventListener("click", (e) => {
   btn.textContent = `GOOD ${current + 1}`;
 });
 
-/* ========= COMMENT MODAL ========= */
+/* ========= COMMENT VIEW / WRITE ========= */
 
 let activeCommentCard = null;
 
@@ -431,45 +431,85 @@ document.addEventListener("click", (e) => {
   if (!btn.textContent.includes("コメント")) return;
 
   activeCommentCard = btn.closest(".rb-card");
-
-  openCommentModal();
+  openCommentView();
 });
 
-function openCommentModal(){
+function getOriginalPostText() {
+  if (!activeCommentCard) return "";
+  const text = activeCommentCard.querySelector(".rb-text");
+  return text ? text.textContent.trim() : "";
+}
+
+function createCommentModal() {
   let modal = document.querySelector(".comment-modal");
 
-  if (!modal) {
-    modal = document.createElement("div");
-    modal.className = "comment-modal";
+  if (modal) return modal;
 
-    modal.innerHTML = `
-      <div class="comment-panel">
-        <div class="comment-head">
-          <h3>コメント</h3>
-          <button class="comment-close">×</button>
-        </div>
+  modal = document.createElement("div");
+  modal.className = "comment-modal";
 
+  modal.innerHTML = `
+    <div class="comment-panel">
+
+      <div class="comment-head">
+        <button class="comment-back">←</button>
+        <h3>コメント</h3>
+        <button class="comment-close">×</button>
+      </div>
+
+      <div class="comment-original">
+        <span>元投稿</span>
+        <p></p>
+      </div>
+
+      <div class="comment-view">
         <div class="modal-comment-list"></div>
+        <button class="open-comment-write">コメントを書く</button>
+      </div>
 
+      <div class="comment-write hidden">
         <textarea class="modal-comment-input" placeholder="コメントを書く..."></textarea>
-
         <button class="modal-comment-submit">送信</button>
       </div>
-    `;
 
-    document.body.appendChild(modal);
-  }
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  return modal;
+}
+
+function openCommentView() {
+  const modal = createCommentModal();
 
   modal.classList.add("show");
+  modal.querySelector(".comment-view").classList.remove("hidden");
+  modal.querySelector(".comment-write").classList.add("hidden");
+
+  modal.querySelector(".comment-original p").textContent = getOriginalPostText();
 
   const list = modal.querySelector(".modal-comment-list");
   list.innerHTML = "";
 
-  const oldComments = activeCommentCard.querySelectorAll(".rb-comment");
+  const comments = activeCommentCard.querySelectorAll(".stored-comment");
 
-  oldComments.forEach((comment) => {
+  if (comments.length === 0) {
+    list.innerHTML = `<p class="empty-comment">まだコメントはありません</p>`;
+    return;
+  }
+
+  comments.forEach((comment) => {
     list.appendChild(comment.cloneNode(true));
   });
+}
+
+function openCommentWrite() {
+  const modal = createCommentModal();
+
+  modal.querySelector(".comment-view").classList.add("hidden");
+  modal.querySelector(".comment-write").classList.remove("hidden");
+
+  modal.querySelector(".comment-original p").textContent = getOriginalPostText();
 }
 
 document.addEventListener("click", (e) => {
@@ -479,26 +519,36 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("comment-back")) {
+    openCommentView();
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("open-comment-write")) {
+    openCommentWrite();
+  }
+});
+
+document.addEventListener("click", (e) => {
   const btn = e.target.closest(".modal-comment-submit");
   if (!btn) return;
 
   const modal = btn.closest(".comment-modal");
   const input = modal.querySelector(".modal-comment-input");
-  const list = modal.querySelector(".modal-comment-list");
 
   const text = input.value.trim();
   if (!text) return;
 
   const comment = document.createElement("div");
-  comment.className = "rb-comment";
+  comment.className = "stored-comment rb-comment";
 
   comment.innerHTML = `
     <strong>Sui</strong>
     <p>${text}</p>
   `;
 
-  list.prepend(comment);
-  activeCommentCard.appendChild(comment.cloneNode(true));
+  activeCommentCard.appendChild(comment);
 
   const commentBtn =
     activeCommentCard.querySelector(".rb-actions button:nth-child(2)");
@@ -510,4 +560,5 @@ document.addEventListener("click", (e) => {
   commentBtn.textContent = `コメント ${currentCount + 1}`;
 
   input.value = "";
+  openCommentView();
 });
