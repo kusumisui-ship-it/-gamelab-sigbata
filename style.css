@@ -900,3 +900,14 @@ document.addEventListener("click", (e) => {
   position:relative;
   z-index:1001;
 }
+.profile-bio{
+  margin:16px auto 0;
+  max-width:280px;
+  background:#0b1220;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:18px;
+  padding:14px;
+  color:#dbe4f0;
+  font-size:14px;
+  line-height:1.6;
+}
