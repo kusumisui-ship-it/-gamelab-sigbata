@@ -1,4 +1,4 @@
-#console.log("GR SYSTEM READY");
+console.log("GR SYSTEM READY");
 
 /* ========= PAGE SYSTEM ========= */
 
