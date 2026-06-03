@@ -310,6 +310,9 @@ document.querySelectorAll(".nav-item").forEach((item,index)=>{
     if(index===1){
       setPage("rb");
     }
+    if(index===4){
+  setPage("profile");
+}
 
   });
 
@@ -526,4 +529,11 @@ document.addEventListener("click", (e) => {
   if (e.target.closest(".profile-btn")) {
     setPage("profile");
   }
+});
+document.addEventListener("click",(e)=>{
+
+  if(e.target.closest(".profile-btn")){
+    setPage("profile");
+  }
+
 });
