@@ -283,6 +283,31 @@ profile: `
     </div>
 
   </div>
+  </div>
+
+<div class="profile-posts">
+
+  <h3>最近の投稿</h3>
+
+  <article class="profile-post-card">
+
+    <span>#Apex #研究</span>
+
+    <p>
+      PAD勢が近距離で勝てない理由は、
+      入力遅延よりピークタイミング説。
+    </p>
+
+    <small>
+      GOOD 91 ・ コメント 12
+    </small>
+
+  </article>
+
+</div>
+
+</section>
+`
 
 </section>
 `,
