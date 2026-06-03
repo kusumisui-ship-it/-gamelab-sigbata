@@ -246,6 +246,44 @@ const pages = {
   </section>
 
   `
+  profile: `
+
+<section class="profile-page">
+
+  <div class="profile-header">
+
+    <div class="profile-avatar">
+      S
+    </div>
+
+    <h2>Sui</h2>
+
+    <p>IGL / Researcher</p>
+
+  </div>
+
+  <div class="profile-stats">
+
+    <div>
+      <strong>12</strong>
+      <span>研究</span>
+    </div>
+
+    <div>
+      <strong>91%</strong>
+      <span>GOOD率</span>
+    </div>
+
+    <div>
+      <strong>3</strong>
+      <span>LAB</span>
+    </div>
+
+  </div>
+
+</section>
+
+`
 };
 
 function setPage(page){
