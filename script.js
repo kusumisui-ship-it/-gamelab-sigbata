@@ -259,6 +259,9 @@ profile: `
     <h2>Sui</h2>
 
     <p>IGL / Researcher</p>
+    <div class="profile-bio">
+  Apex Master / Analyst / Founder
+</div>
 
   </div>
 
