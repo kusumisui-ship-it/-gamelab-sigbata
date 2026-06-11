@@ -308,6 +308,22 @@ profile: `
 
 </section>
 `,
+`,
+
+notice: `
+
+<section class="notice-page">
+
+  <h2>通知</h2>
+
+  <p>
+    GOOD・コメント・保存・フォロー通知がここに表示されます。
+  </p>
+
+</section>
+
+`,
+
 };
 
 function setPage(page){
