@@ -336,7 +336,7 @@ document.querySelectorAll(".nav-item").forEach((item,index)=>{
       setPage("rb");
     }
     if(index===4){
-  setPage("profile");
+  setPage("notice");
 }
 
   });
