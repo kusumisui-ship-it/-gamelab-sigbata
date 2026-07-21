@@ -314,7 +314,7 @@ function renderHome() {
 
       <section class="section">
         <div class="section-head"><h2>Latest Research</h2><button class="link-button" data-route="rb">すべて見る</button></div>
-        ${gamePosts.length ? `<div class="feed">${gamePosts.slice(0, 3).map(renderPostCard).join("")}</div>` : renderEmpty("投稿はまだありません", "最初の仮説を書いてみよう。")}
+        ${gamePosts.length ? `<div class="feed">${gamePosts.slice(0, 3).map(renderPostCard).join("")}</div>` : renderEmpty("投稿はまだありません", "最初の仮説を書いてみよう。フ")}
       </section>
     </section>`;
 }
@@ -654,14 +654,13 @@ function resetState() {
 }
 
 document.addEventListener("click", (event) => {
-  const target = event.target.closest("button, [data-close-modal]");
+  const target = event.target.closest("button");
   if (!target) return;
-  if (target.matches("[data-modal-panel]") || target.closest("[data-modal-panel]") && target.matches(".modal-panel")) return;
 
   if (target.dataset.route) return setPage(target.dataset.route);
   if (target.dataset.action === "compose" || target.id === "composeButton") return openCompose();
   if (target.id === "gameButton") return openGamePicker();
-  if (target.hasAttribute("data-close-modal") && !target.closest("[data-modal-panel]") || target.matches("button[data-close-modal]")) return closeModal();
+  if (target.hasAttribute("data-close-modal")) return closeModal();
   if (target.dataset.game) {
     state.currentGame = target.dataset.game;
     saveState();
