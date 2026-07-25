@@ -79,7 +79,7 @@
 
   function openSettings() {
     modalRoot.insertAdjacentHTML("beforeend", `
-      <div class="ui-settings" data-ui-close>
+      <div class="ui-settings" data-ui-backdrop>
         <section class="ui-settings-panel" role="dialog" aria-modal="true" aria-labelledby="uiSettingsTitle">
           <h2 id="uiSettingsTitle">表示設定</h2>
           <div class="ui-setting-group">
@@ -122,8 +122,13 @@
       return;
     }
 
-    if (event.target.closest("[data-ui-close]")) {
-      event.target.closest(".ui-settings")?.remove();
+    if (button?.hasAttribute("data-ui-close")) {
+      button.closest(".ui-settings")?.remove();
+      return;
+    }
+
+    if (event.target.hasAttribute("data-ui-backdrop")) {
+      event.target.remove();
     }
   });
 
