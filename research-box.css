@@ -1,0 +1,90 @@
+.research-box-page .section { padding-top: 8px; }
+
+.box-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 18px 0 8px;
+}
+
+.box-summary > div {
+  border: 1px solid var(--line, #252a34);
+  background: var(--panel, #11151c);
+  border-radius: 14px;
+  padding: 14px 10px;
+  text-align: center;
+}
+
+.box-summary strong,
+.box-summary span { display: block; }
+.box-summary strong { font-size: 1.25rem; }
+.box-summary span { margin-top: 4px; font-size: .72rem; color: var(--muted, #8f96a3); }
+
+.box-auto-label {
+  font-size: .72rem;
+  color: var(--muted, #8f96a3);
+}
+
+.box-folder-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.box-folder {
+  overflow: hidden;
+  border: 1px solid var(--line, #252a34);
+  border-radius: 16px;
+  background: var(--panel, #11151c);
+}
+
+.box-folder-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  border-bottom: 1px solid var(--line, #252a34);
+}
+
+.box-folder-head > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.box-folder-head small { color: var(--muted, #8f96a3); }
+.box-folder-icon { color: var(--accent, #e13b45); }
+.box-mini-button { width: 30px; height: 30px; }
+.box-folder-items { display: grid; gap: 1px; background: var(--line, #252a34); }
+
+.box-item {
+  width: 100%;
+  border: 0;
+  background: var(--panel, #11151c);
+  color: inherit;
+  text-align: left;
+  padding: 14px;
+}
+
+.box-item:active { background: #171c25; }
+.box-item p { margin: 9px 0; line-height: 1.65; }
+.box-item-top { display: flex; align-items: center; justify-content: space-between; }
+.box-item-top small { color: var(--muted, #8f96a3); }
+.box-memo { display: block; margin-top: 10px; color: #c7ccd5; }
+.box-memo.muted { color: var(--muted, #8f96a3); }
+.box-folder-empty { padding: 20px 14px; background: var(--panel, #11151c); color: var(--muted, #8f96a3); font-size: .82rem; }
+
+.box-select {
+  width: 100%;
+  border: 1px solid var(--line, #252a34);
+  border-radius: 12px;
+  background: #0c1016;
+  color: #fff;
+  padding: 13px;
+  font: inherit;
+}
+
+.box-editor-source { margin-top: 14px; }
+
+@media (min-width: 760px) {
+  .box-folder-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
