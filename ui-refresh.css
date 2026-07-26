@@ -103,6 +103,15 @@ body { color: var(--ink); background: var(--surface); }
   font-size:12px;
 }
 .rb-social-tabs button.active { color:var(--ink); box-shadow:inset 0 -2px var(--accent); }
+.research-purpose {
+  display:grid;
+  gap:3px;
+  padding:12px 16px;
+  border-bottom:1px solid var(--hairline);
+  background:var(--accent-soft);
+}
+.research-purpose strong { font-size:12px; color:var(--ink); }
+.research-purpose span { font-size:11px; line-height:1.5; color:var(--subtle); }
 .toolbar { padding:10px 14px; gap:7px; border-bottom:1px solid var(--hairline); background:var(--surface); }
 .filter-chip, .tag-chip { background:var(--surface-2); color:var(--subtle); border:0; }
 .filter-chip.active, .tag-chip.active { color:var(--accent); background:var(--accent-soft); }
@@ -121,6 +130,35 @@ body { color: var(--ink); background: var(--surface); }
 .user-copy small, .post-actions, .post-actions button { color:var(--subtle); }
 .game-label { color:var(--accent); }
 .status-badge { border:0; color:var(--accent); background:var(--accent-soft); }
+.funding-label {
+  display:inline-flex;
+  align-items:center;
+  min-height:24px;
+  margin-left:auto;
+  margin-right:6px;
+  padding:0 8px;
+  border:1px solid var(--hairline);
+  border-radius:999px;
+  color:var(--subtle);
+  background:var(--surface-2);
+  font-size:10px;
+  font-weight:700;
+}
+.research-proof {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin:9px 0 0 44px;
+}
+.research-proof span {
+  padding:3px 7px;
+  border-radius:7px;
+  background:var(--surface-2);
+  color:var(--subtle);
+  font-size:10px;
+  font-weight:700;
+}
+.research-proof span:first-child { color:var(--accent); background:var(--accent-soft); }
 .post-text-button { margin-top:8px; }
 .post-text { font-size:15px; line-height:1.7; }
 .post-tags { margin-top:8px; }
@@ -128,6 +166,62 @@ body { color: var(--ink); background: var(--surface); }
 .post-actions { margin-top:10px; padding-top:0; border:0; }
 .action-button { border:0; background:transparent; }
 .action-button.active { color:var(--accent); }
+.related-research-button {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  min-height:40px;
+  margin-top:9px;
+  padding:0 11px;
+  border:1px solid var(--hairline);
+  border-radius:11px;
+  background:var(--surface-2);
+  color:var(--ink);
+  font-size:12px;
+  font-weight:700;
+  text-align:left;
+}
+.related-research-button span { color:var(--accent); font-size:16px; }
+.related-modal .ui-settings-panel { max-height:86vh; overflow:auto; }
+.related-modal-head { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.related-modal-head small { color:var(--accent); font-size:10px; font-weight:800; letter-spacing:.08em; }
+.related-modal-head h2 { margin:2px 0 0; }
+.related-modal-head > button {
+  width:36px;
+  height:36px;
+  border:1px solid var(--hairline);
+  border-radius:50%;
+  background:var(--surface-2);
+  color:var(--ink);
+  font-size:20px;
+}
+.related-source { margin:14px 0; color:var(--subtle); font-size:12px; line-height:1.6; }
+.related-list { display:grid; gap:8px; }
+.related-item {
+  display:grid;
+  gap:7px;
+  width:100%;
+  padding:13px;
+  border:1px solid var(--hairline);
+  border-radius:13px;
+  background:var(--surface-2);
+  color:var(--ink);
+  text-align:left;
+}
+.related-item span, .related-item small { color:var(--subtle); font-size:10px; }
+.related-item span b { color:var(--accent); margin-right:6px; }
+.related-item strong { font-size:13px; line-height:1.55; }
+.funding-note {
+  margin:15px 0 0;
+  padding:12px;
+  border-left:3px solid var(--accent);
+  background:var(--accent-soft);
+  color:var(--subtle);
+  font-size:11px;
+  line-height:1.6;
+}
+.funding-note b { color:var(--ink); }
 
 /* LAB / note-like reading */
 .lab-grid { display:block; }
@@ -193,4 +287,6 @@ html[data-box-view="list"] .box-folder + .box-folder { margin-top:0; }
   .box-folder-items { display:none; }
   html[data-box-view="list"] .box-folder-items { display:block; }
   .box-summary { margin:12px; }
+  .funding-label { max-width:108px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .research-proof { margin-left:0; }
 }
