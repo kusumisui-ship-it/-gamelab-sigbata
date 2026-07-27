@@ -21,10 +21,7 @@
 
   function noteMatches(note, query) {
     if (!query) return true;
-    return [note.title, note.summary, note.body, note.author]
-      .join(" ")
-      .toLowerCase()
-      .includes(query);
+    return [note.title, note.summary, note.body, note.author].join(" ").toLowerCase().includes(query);
   }
 
   function renderNoteCards(items) {
@@ -42,7 +39,7 @@
   }
 
   function renderProfileTabs(root) {
-    if (ui?.page !== "profile" || root.querySelector(".profile-content-shell")) return;
+    if (ui?.page !== "profile") return;
     const cover = root.querySelector(".profile-cover");
     if (!cover) return;
 
@@ -52,6 +49,7 @@
     if (oldToolbar) oldToolbar.hidden = true;
     if (oldSection) oldSection.hidden = true;
     if (noteBlock) noteBlock.hidden = true;
+    if (root.querySelector(".profile-content-shell")) return;
 
     const ownPosts = state.posts.filter((post) => post.author === state.profile.name).slice().sort((a,b) => b.createdAt-a.createdAt);
     const saved = state.posts.filter((post) => post.saved).slice().sort((a,b) => b.createdAt-a.createdAt);
@@ -74,9 +72,15 @@
   }
 
   function renderSearchTabs(root) {
-    if (ui?.page !== "search" || root.querySelector(".discovery-content-shell")) return;
+    if (ui?.page !== "search") return;
     const searchBox = root.querySelector(".search-box");
     if (!searchBox) return;
+
+    [...root.children].forEach((child) => {
+      if (child === root.querySelector(".page-head") || child === searchBox || child.classList.contains("discovery-content-shell")) return;
+      child.hidden = true;
+    });
+    if (root.querySelector(".discovery-content-shell")) return;
 
     const query = (ui.searchQuery || "").trim().toLowerCase();
     const tag = ui.searchTag || "";
@@ -88,11 +92,6 @@
     const matchedPosts = state.posts.filter(postMatches).slice().sort((a,b) => b.createdAt-a.createdAt);
     const matchedNotes = tag ? [] : publicNotes().filter((note) => noteMatches(note, query));
     const matchedLabs = state.labs.filter(labMatches);
-
-    [...root.children].forEach((child) => {
-      if (child === root.querySelector(".page-head") || child === searchBox) return;
-      child.hidden = true;
-    });
 
     const group = (type, title, count, content) => `<section class="discovery-group" data-discovery-group="${type}"><div class="discovery-group-head"><h2>${title}</h2><span>${count}件</span></div>${content}</section>`;
     searchBox.insertAdjacentHTML("afterend", `<section class="discovery-content-shell">
